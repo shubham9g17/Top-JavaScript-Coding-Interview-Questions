@@ -1,0 +1,25 @@
+/**
+ * Counts the number of consonants in a given string.
+ * @param {string} str - The string to evaluate.
+ * @returns {number} - The count of consonants.
+ */
+function countConsonants(str) {
+    // Define vowels for reference
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    // Convert the string to lowercase to make the check case-insensitive
+    const lowerStr = str.toLowerCase();
+
+    // Iterate through each character in the string
+    for (let char of lowerStr) {
+        // Check if the character is a letter and not a vowel
+        if (char >= 'a' && char <= 'z' && !vowels.includes(char)) {
+            count++;
+        }
+    }
+    return count;
+}
+// Example usage:
+const sampleString = "Hello World!";
+const consonantCount = countConsonants(sampleString);
+console.log(consonantCount); // Output: 7
