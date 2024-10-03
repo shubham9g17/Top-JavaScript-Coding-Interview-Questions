@@ -1,1 +1,44 @@
+/**
+ * Finds the kth largest element using QuickSelect algorithm.
+ * @param {Array} nums - The array of numbers.
+ * @param {number} k - The position of the largest element to find.
+ * @returns {number} - The kth largest element.
+ */
+function findKthLargestQuickSelect(nums, k) {
+    // Convert kth largest to (length - k) smallest
+    const target = nums.length - k;
+
+    function quickSelect(left, right) {
+        // Choose a pivot randomly
+        const pivotIndex = Math.floor(Math.random() * (right - left + 1)) + left;
+        const pivot = nums[pivotIndex];
+        // Move pivot to the end
+        [nums[pivotIndex], nums[right]] = [nums[right], nums[pivotIndex]];
+
+        let storeIndex = left;
+        for (let i = left; i < right; i++) {
+            if (nums[i] < pivot) {
+                [nums[i], nums[storeIndex]] = [nums[storeIndex], nums[i]];
+                storeIndex++;
+            }
+        }
+        // Move pivot to its final place
+        [nums[storeIndex], nums[right]] = [nums[right], nums[storeIndex]];
+
+        if (storeIndex === target) {
+            return nums[storeIndex];
+        } else if (storeIndex < target) {
+            return quickSelect(storeIndex + 1, right);
+        } else {
+            return quickSelect(left, storeIndex - 1);
+        }
+    }
+
+    return quickSelect(0, nums.length - 1);
+}
+
+// Example usage:
+const numbersQuick = [3, 2, 1, 5, 6, 4];
+const kthLargestQuick = findKthLargestQuickSelect(numbersQuick, k);
+console.log(kthLargestQuick); // Output: 5
 
