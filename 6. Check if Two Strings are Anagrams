@@ -1,0 +1,30 @@
+/**
+ * Checks if two strings are anagrams.
+ * @param {string} str1 - The first string.
+ * @param {string} str2 - The second string.
+ * @returns {boolean} - True if anagrams, false otherwise.
+ */
+function areAnagrams(str1, str2) {
+    // Function to normalize and sort the characters of a string
+    const normalize = (str) => {
+        return str
+            .replace(/\s+/g, '') // Remove all spaces
+            .toLowerCase()       // Convert to lowercase
+            .split('')           // Split into characters
+            .sort()              // Sort characters
+            .join('');           // Join back into a string
+    };
+
+    // Normalize both strings
+    const normalizedStr1 = normalize(str1);
+    const normalizedStr2 = normalize(str2);
+
+    // Compare the normalized strings
+    return normalizedStr1 === normalizedStr2;
+}
+
+// Example usage:
+const string1 = "Listen";
+const string2 = "Silent";
+const result = areAnagrams(string1, string2);
+console.log(result); // Output: true
