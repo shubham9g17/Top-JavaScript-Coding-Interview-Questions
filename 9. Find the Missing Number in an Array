@@ -1,1 +1,20 @@
+/**
+ * Finds the missing number in an array containing numbers from 0 to n.
+ * @param {Array} nums - The array containing n distinct numbers.
+ * @returns {number} - The missing number.
+ */
+function findMissingNumber(nums) {
+    const n = nums.length;
+    // Calculate the expected sum of numbers from 0 to n
+    const expectedSum = (n * (n + 1)) / 2;
+    // Calculate the actual sum of elements in the array
+    const actualSum = nums.reduce((acc, num) => acc + num, 0);
+    // The missing number is the difference between expected and actual sums
+    return expectedSum - actualSum;
+}
+
+// Example usage:
+const array = [3, 0, 1];
+const missing = findMissingNumber(array);
+console.log(missing); // Output: 2
 
