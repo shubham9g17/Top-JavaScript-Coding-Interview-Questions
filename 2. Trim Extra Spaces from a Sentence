@@ -1,0 +1,17 @@
+/**
+ * Trims extra spaces from a sentence, leaving only single spaces between words.
+ * @param {string} sentence - The sentence to trim.
+ * @returns {string} - The trimmed sentence.
+ */
+function trimExtraSpaces(sentence) {
+    // Step 1: Trim leading and trailing spaces
+    const trimmed = sentence.trim();
+    // Step 2: Replace multiple spaces with a single space using regex
+    const singleSpaced = trimmed.replace(/\s+/g, ' ');
+    return singleSpaced;
+}
+
+// Example usage:
+const messySentence = "  This   is  a   messy   sentence.  ";
+const cleanSentence = trimExtraSpaces(messySentence);
+console.log(cleanSentence); // Output: "This is a messy sentence."
