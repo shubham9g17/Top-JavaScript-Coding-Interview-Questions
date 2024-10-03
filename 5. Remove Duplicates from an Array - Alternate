@@ -1,0 +1,6 @@
+function removeDuplicatesFilter(arr) {
+    return arr.filter((item, index) => arr.indexOf(item) === index);
+}
+
+const uniqueArrayFilter = removeDuplicatesFilter(arrayWithDuplicates);
+console.log(uniqueArrayFilter); // Output: [1, 2, 3, 4, 5]
