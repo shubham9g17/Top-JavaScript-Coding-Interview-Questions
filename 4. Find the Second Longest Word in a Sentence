@@ -1,0 +1,24 @@
+/**
+ * Finds the second longest word in a sentence.
+ * @param {string} sentence - The sentence to evaluate.
+ * @returns {string} - The second longest word.
+ */
+function secondLongestWord(sentence) {
+    // Split the sentence into words, removing any extra spaces
+    const words = sentence.trim().split(/\s+/);
+    
+    if (words.length < 2) {
+        return null; // Not enough words for a second longest
+    }
+
+    // Sort the words array based on word length in descending order
+    const sortedWords = words.sort((a, b) => b.length - a.length);
+
+    // The first word is the longest, the second is the second longest
+    return sortedWords[1];
+}
+
+// Example usage:
+const sentence = "I love programming in JavaScript";
+const secondLongest = secondLongestWord(sentence);
+console.log(secondLongest); // Output: "programming"
