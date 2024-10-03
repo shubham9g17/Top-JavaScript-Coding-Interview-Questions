@@ -1,1 +1,19 @@
+function findMissingNumberXOR(nums) {
+    let xor = 0;
+    const n = nums.length;
+
+    // XOR all array elements and indices
+    for (let i = 0; i < n; i++) {
+        xor ^= nums[i];
+        xor ^= i;
+    }
+
+    // XOR with n to include the last number
+    xor ^= n;
+
+    return xor;
+}
+
+const missingXOR = findMissingNumberXOR(array);
+console.log(missingXOR); // Output: 2
 
